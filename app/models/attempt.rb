@@ -1,5 +1,5 @@
 class Attempt < ActiveRecord::Base
 	belongs_to :user
-	has_one :route
+	belongs_to :route
 	validates :date_attempted, presence: true
 end
