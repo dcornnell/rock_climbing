@@ -1,0 +1,12 @@
+%h1
+	= @location.name
+%br
+%h2
+	= @location.area
+%p
+	= @location.description
+- if @location.camping == true
+	this area has camping
+%br
+= link_to "edit this location", edit_location_path
+= link_to "delete this location", location_path, :method => "delete"
