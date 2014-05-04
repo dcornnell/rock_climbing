@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :contact
 	validates_uniqueness_of :contact
 	has_secure_password
+	mount_uploader :user_photo, UserPhotoUploader
 end
 
 
