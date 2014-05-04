@@ -1,0 +1,12 @@
+- @routes.each do |r|
+	-if r.name
+		= r.name
+	-else
+		No Name |
+	= grade_format(r.grade,r.modifier)
+	%br
+
+
+
+
+

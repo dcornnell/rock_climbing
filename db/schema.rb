@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502133937) do
+ActiveRecord::Schema.define(version: 20140504170625) do
 
   create_table "attempts", force: true do |t|
     t.integer  "user_id"
@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 20140502133937) do
   create_table "routes", force: true do |t|
     t.integer  "location_id"
     t.string   "name"
-    t.string   "grade"
+    t.integer  "grade",       limit: 255
     t.string   "beta"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "modifier"
   end
 
   create_table "users", force: true do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140502133937) do
     t.integer  "total_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
