@@ -7,6 +7,20 @@
 	= @user.total_score
 %br
 
+Your life time score
+= @attempts.sum(:attempt_score)
+%br
+this years score
+= @attempts.this_year.sum(:attempt_score)
+%br
+this months score
+= @attempts.this_month.sum(:attempt_score)
+%br
+this weeks score
+= @attempts.this_week.sum(:attempt_score)
+%br
+todays score
+= @attempts.this_day.sum(:attempt_score)
 
 
 
