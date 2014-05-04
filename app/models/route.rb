@@ -4,13 +4,14 @@ class Route < ActiveRecord::Base
 
 
 	def calculate_grade(level, modifier)
-	@grade = level 
+	@grade = level + 1
 	if modifier == 1
 			@grade +=  0.3333333
 		elsif modifier == 2
 			@grade -=  0.3333333
 		else
-			@grade
+			@grade 
 		end
+		@grade *= 10
 	end
 end

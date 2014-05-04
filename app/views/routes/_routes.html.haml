@@ -9,6 +9,7 @@ V
 location
 %br
 = f.select :location_id, Location.all.collect {|u| [u.name, u.id]}
+
 %br
 =f.label :beta
 %br

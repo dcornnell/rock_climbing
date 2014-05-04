@@ -9,8 +9,7 @@ class Attempt < ActiveRecord::Base
 	scope :this_year, -> {where('date_attempted > ? ',   365.days.ago)}
 
 	def add_modifiers(grade, completed, flash)
-
-		grade = grade + 1
+	
 			if completed == true
 				if flash == true
 						grade *= 1.5
@@ -20,7 +19,7 @@ class Attempt < ActiveRecord::Base
 			else
 				grade *= 0.25
 			end
-			grade = (grade * 10).round
+			@grade
 		end
 end
 

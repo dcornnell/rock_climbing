@@ -10,6 +10,7 @@ class RoutesController < ApplicationController
 	def create
 		@new_route = Route.new(route_params)
 		@new_route.score = @new_route.calculate_grade(@new_route.grade, @new_route.modifier)
+	
 		if @new_route.save
 			redirect_to routes_path
 		else
@@ -44,7 +45,7 @@ class RoutesController < ApplicationController
 private
 
  def route_params
- 	params.require(:route).permit(:name, :grade, :beta, :modifier)
+ 	params.require(:route).permit(:name, :grade, :beta, :modifier , :location_id)
  end
  	
 end
