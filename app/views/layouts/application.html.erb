@@ -8,14 +8,32 @@
 </head>
 <body>
 
-<% if current_user %>
-	<%= link_to "Log_out", logout_path %>
-<% else %>
-	<%= link_to "Log_in", login_path %>
-	<% end %>
-<%flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<%= nav_bar :float => :top, :brand => "RockClimber", :responsive => true do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= menu_divider %>
+        <%= drop_down "Menu" do %>
+            <%= menu_item "Routes", routes_path %>
+            <%= menu_item "Location", locations_path %>
+            <%= menu_item "Attempts", attempts_path %>
+            <%= menu_item "Users", users_path %>
+          
+        <% end %>
+        	<%if current_user %>
+        		<%= menu_item "Currently logged in as #{show_name(session[:user_id])}" %>
+        		<% end %>
+    <% end %>
+    <%= menu_group :pull => :right do %>
+        <% if current_user %>
+            <%= menu_item "Log Out", logout_path %>
+        <% else %>
+            <%= menu_item "Log In", login_path %>
+        <% end %>
+    <% end %>
 <% end %>
+
+
+
 
 <%= yield %>
 

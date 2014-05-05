@@ -9,6 +9,12 @@ module ApplicationHelper
 			value = ""
 		end
 		return "V#{grade}#{value}"
-	end				
+	end		
+
+	def show_name(name)
+		user = User.find(name)
+		user.name
+
+	end		
 
 end
