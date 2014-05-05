@@ -21,6 +21,8 @@ class Attempt < ActiveRecord::Base
 			end
 			grade
 		end
+
+	
 end
 
 

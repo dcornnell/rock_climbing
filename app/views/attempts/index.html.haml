@@ -1,8 +1,18 @@
-- @attempts.each do |f|
-	=f.date_attempted
-	%br
-	=f.attempt_score
-	%br
-	=f.notes
-	%br
-	
+.container
+	=link_to "add a attempt", new_attempt_path
+	%table.table-bordered.table-striped
+		%th date
+		%th attempt score
+		%th notes
+		%th name
+		- @attempts.each do |f|
+			%tr
+				%td
+					=formatted_date(f.date_attempted)
+				%td
+					=f.attempt_score
+				%td
+					=f.notes
+				%td
+					-if f.user
+						=f.user.name

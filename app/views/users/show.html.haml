@@ -29,4 +29,37 @@
 		= @attempts.this_day.sum(:attempt_score)
 
 
+	%br
+	=link_to "add an attempt", new_attempt_path
+	%table.table-bordered
+		%th date
+		%th attempt score
+		%th notes
+		%th route name
+		%th route grade
+
+		 
+		- @attempts.each do |f|
+			%tr
+				%td
+					=formatted_date(f.date_attempted)
+				%td
+					=f.attempt_score
+				%td
+					=f.notes
+				%td
+					-if f.route
+						=f.route.name
+					-else
+						route not found
+				%td
+					-if f.route
+						/ =f.route.grade_format(f.route.grade,f.route.modifier)
+						V
+						= f.route.grade
+						= f.route.modifier
+					-else
+						grade not found
+
+
 
