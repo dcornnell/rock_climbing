@@ -1,10 +1,20 @@
-- @routes.each do |r|
-	-if r.name
-		= r.name
-	-else
-		No Name |
-	= grade_format(r.grade,r.modifier)
-	%br
+.container
+	%table.table-striped
+		%th name
+		%th grade
+		%th score
+		- @routes.each do |r|
+			%tr
+				%td
+					-if r.name
+						= link_to "#{r.name}", route_path(r)
+					-else
+						= link_to "no name", route_path(r) 
+				%td		
+					= grade_format(r.grade,r.modifier)
+				%td
+					=r.score
+		
 
 
 
