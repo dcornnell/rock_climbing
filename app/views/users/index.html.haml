@@ -1,0 +1,19 @@
+.container
+  - @users.each do |d|
+    .col-sm-4.col-xs-6 
+      .panel.panel-default
+        .panel-thumbnail
+
+          = image_tag d.user_photo.url ,:style => "max-width: 100%"
+
+        .panel-body
+          %p.lead 
+          Name
+          = d.name
+          %p
+          About:
+          = d.about
+          %p
+
+
+           

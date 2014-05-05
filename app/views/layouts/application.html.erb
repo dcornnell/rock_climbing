@@ -20,7 +20,7 @@
           
         <% end %>
         	<%if current_user %>
-        		<%= menu_item "Currently logged in as #{show_name(session[:user_id])}" %>
+        		<%= menu_item "Currently logged in as #{show_name(session[:user_id])}", user_path(session[:user_id]) %>
         		<% end %>
     <% end %>
     <%= menu_group :pull => :right do %>

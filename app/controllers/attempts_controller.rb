@@ -9,7 +9,13 @@ class AttemptsController < ApplicationController
 
 	def create
 		@new_attempt = Attempt.new(attempt_params)
-		@new_attempt.attempt_score = @new_attempt.add_modifiers(@new_attempt.route.score,@new_attempt.completed,@new_attempt.flash)
+		grade = @new_attempt.route.score
+		puts "________________________#{grade}"
+		completed = @new_attempt.completed
+			puts "________________________#{completed}"
+		flash = @new_attempt.flash
+			puts "________________________#{flash}"
+		@new_attempt.attempt_score = @new_attempt.add_modifiers(grade, completed, flash)
 
 		if @new_attempt.save
 			redirect_to attempts_path
